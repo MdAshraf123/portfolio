@@ -1,12 +1,74 @@
 import { Mail, Github, Linkedin, MapPin } from "lucide-react";
-import React,{useRef, useEffect} from 'react';
+import React,{useRef, useEffect, useState} from 'react';
 import Skill from './Skill';
 const MainPage=()=>{
     const skill=useRef(null);
     const home=useRef(null);
     const about=useRef(null);
     const api=useRef(null);
-   
+    const contact=useRef(null);
+    const elementsRef=useRef([]);
+    const [formData,setFormData]=useState({'name':'','email':'','message':''});
+    const HOST_URL='http:localhost:8000//api/';
+    function formHandler(e){
+        setFormData((prev)=>({...formData,[e.target.name]:e.target.value,}))
+    }
+
+    function formSubmit(){
+        if(formData.name.trim()==''){
+            alert('Please enter name!');
+        }
+        else if(formData.message.trim()==''){
+            alert('Please write message!')
+        }
+        else if(!'/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'.test(formData.email.trim())){
+             alert('Please enter valid email!')
+        }
+        try{
+            fetch(LOCAL_URL+'post-mail/',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                },
+                body:JSON.stringify(formData),
+            })
+            .then((res)=>{
+                return res.json()
+            })
+            .then((data)=>{
+                alert(data.message)
+            })
+        }
+        catch( Error){
+            alert('Something went wrong!')
+        }
+            
+    }
+    
+    useEffect(() => {
+
+    const handleScroll = () => {
+        elementsRef.current.forEach((el) => {
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        if (rect.top > windowHeight - 100) {
+            el.classList.add("opacity-0","translate-y-4");
+        } else {
+            el.classList.remove("opacity-0", "translate-y-4");
+        }
+        });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run once when page loads
+
+    return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+   console.log(formData)
     return(
         <>
             <div className=" w-full h-auto min-h-screen  ">
@@ -18,7 +80,7 @@ const MainPage=()=>{
                         <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{skill.current?.scrollIntoView({ behavior: 'smooth' });}}>Skills</button></li>
                         <li><button  className="nav-link cursor-pointer border-b-2 border-b-transparent" >Projects</button></li>
                         <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{api.current?.scrollIntoView({ behavior: 'smooth' });}}>API</button></li>
-                        <li><button  className="nav-link cursor-pointer border-b-2 border-b-transparent" >Contact</button></li>                   
+                        <li><button  className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{contact.current?.scrollIntoView({ behavior: 'smooth' });}}>Contact</button></li>                   
                     </ul>
                 </div>
                 <section ref={home} className="pt-20" id='home'>
@@ -41,10 +103,10 @@ const MainPage=()=>{
                         <h1 className="text-center underline underline-offset-8 text-blue-600 text-3xl w-full">About</h1>
                         <div className=" grow p-10 flex justify-center items-center">
                             <div className="flex justify-end gap-10 w-4/5 max-w-4xl">
-                                <img src="" alt="" className="w-50 h-65  "/>
-                                <div className="w-[60%] flex flex-col justify-center">
+                                <img src="" alt="" className="w-50 h-65  transition-all duration-1000  " ref={(el) => (elementsRef.current[0] = el)} />
+                                <div className="w-[60%] flex flex-col justify-center transition-all duration-900" ref={(el) => (elementsRef.current[1] = el)}>
                                     <h1><b>I'am Mohammad Ashraf</b></h1>
-                                    <p className=" ">I am an student of this AGC Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laudantium voluptatem accusamus at suscipit fuga ullam nulla ipsum nemo totam soluta corrupti possimus! Excepturi itaque possimus, minima architecto placeat repellendus. </p>
+                                    <p >I am an student of this AGC Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laudantium voluptatem accusamus at suscipit fuga ullam nulla ipsum nemo totam soluta corrupti possimus! Excepturi itaque possimus, minima architecto placeat repellendus. </p>
                                 </div>
                             </div>
                             
@@ -75,7 +137,7 @@ const MainPage=()=>{
                     <div  className="h-[85vh] w-full bg-white flex flex-col">
                         <h1 className="text-center underline underline-offset-8 text-blue-600 text-3xl w-full">I'am on API</h1>
                         <div className=" grow px-30 flex justify-center items-center gap-10">
-                            <div className=" flex flex-col basis-1/2 gap-3">
+                            <div className=" flex flex-col basis-1/2 gap-3 transition-all duration-900" ref={(el) => (elementsRef.current[2] = el)}>
                                <h1>Find me via API:</h1> 
                                <p>I have created api in DRF, you can make get requests on it</p>
                                <p>/myprofile/</p>
@@ -87,8 +149,22 @@ const MainPage=()=>{
                         </div>
                     </div>
                 </section>
+
+                <section ref={contact} className="pt-20">
+                    <div  className="h-[85vh] w-full bg-white flex flex-col">
+                        <h1 className="text-center underline underline-offset-8 text-blue-600 text-3xl w-full">Contact</h1>
+                        <div className=" grow px-30 flex justify-center items-center gap-10">
+                            <div className=" flex flex-col basis-1/2 gap-5">
+                               <input name="name" type="text" onChange={formHandler} placeholder="Name" className="p-2 border rounded-sm border-blue-600/30 outline-blue-600 transition-all duration-900" ref={(el) => (elementsRef.current[3] = el)}/>
+                               <input name="email" type="email" onChange={formHandler} placeholder="Your Email" className="p-2 border rounded-sm border-blue-600/30 outline-blue-600 transition-all duration-900" ref={(el) => (elementsRef.current[4] = el)}/>             
+                               <textarea  name="message" onChange={formHandler} id="message" rows="7" className="p-2 border rounded-sm border-blue-600/30 outline-blue-600 transition-all duration-900" ref={(el) => (elementsRef.current[5] = el)}></textarea>
+                                <input type="button" value="Send" onClick={formSubmit } className="bg-blue-600 w-fit h-fit px-4 py-2 rounded-sm cursor-pointer text-white transition-all duration-900" ref={(el) => (elementsRef.current[6] = el)} />
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <footer>
-                    <div className="w-full h-50 bg-blue-900 p-10">
+                    <div className="w-full h-50 bg-blue-950 p-10">
                         <h1 className="text-white">Mohammad Ashraf</h1>
                         <a href=""><Mail className="w-5 h-5" /></a>
                         <a href=""><Linkedin className="w-5 h-5 text-blue-600" /></a>

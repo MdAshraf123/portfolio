@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
 from rest_framework.generics import GenericAPIView,ListAPIView
 from .models import (MyProfile,
                     Skill,
@@ -67,3 +70,20 @@ class QualificationListAPIView(ListAPIView):
             'total':queryset.count(),
             'qualifications':serializer.data,
         })
+
+class SendMailAPIView(APIView):
+    def post(self, request):
+        name=request.data.get('name')
+        email=request.data.get('email')
+        message=request.data.get('message')
+        try:
+            send_mail(
+                subject=f"Message from {name}",
+                message=message,
+                from_email=email,
+                recipient_list=['mdashraf6776@gmail.com'],
+                fail_silently=False,
+            )
+            return Response({'success':True, 'message':'Email Sent.'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'success':False, 'message':str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
