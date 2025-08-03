@@ -3,9 +3,9 @@ from . import views
 
 urlpatterns=[
     path('profile/',views.MyProfileGenericAPIView.as_view(),name='profile'),
-    path('project/',views.ProjectListAPIView.as_view(),name='project' ),
-    path('skill/',views.SkillListAPIView.as_view(), name='skill'), 
-    path('extra-activity/',views.ExtraActivityListAPIView.as_view(), name='extra-activity'),
-    path('qualification/',views.QualificationListAPIView.as_view(), name='qualification'),
+    path('projects/',views.ProjectListAPIView.as_view(),name='projects' ),
+    path('skills/',views.SkillListAPIView.as_view(), name='skills'), 
+    path('extra-activities/',views.ExtraActivityListAPIView.as_view(), name='extra-activities'),
+    path('qualifications/',views.QualificationListAPIView.as_view(), name='qualifications'),
     path('send-email/', views.SendMailAPIView.as_view(), name='send-email'),
 ]
