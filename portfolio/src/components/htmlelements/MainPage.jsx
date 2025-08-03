@@ -99,7 +99,7 @@ const MainPage=()=>{
                             <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{api.current?.scrollIntoView({ behavior: 'smooth' });}}>API</button></li>
                         
                         </ul>
-                        <button className="ml-auto w-6 h-6 " onClick={()=>{ setMenubtn((prev)=>!prev)}}><img src={!menubtn? barbtn : closebtn } alt="menu" /></button>
+                        <button className="md:hidden ml-auto w-6 h-6 " onClick={()=>{ setMenubtn((prev)=>!prev)}}><img src={!menubtn? barbtn : closebtn } alt="menu" /></button>
                     </div>
                      <div className={ menubtn ? "w-full  bg-white" : "hidden" } >
                         <ul className="w-full">
