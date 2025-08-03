@@ -8,9 +8,12 @@ import skillimg from '../../assets/skill.jpg';
 import drflogo from '../../assets/drf.png';
 import reactlogo from '../../assets/react.svg';
 import djangologo from '../../assets/Django.svg';
-
+import barbtn from '../../assets/bars.svg';
+import closebtn from '../../assets/close.png';
 import Skill from './Skill';
+
 const MainPage=()=>{
+    const [menubtn, setMenubtn]=useState(false)
     const skill=useRef(null);
     const home=useRef(null);
     const about=useRef(null);
@@ -81,19 +84,40 @@ const MainPage=()=>{
    console.log(formData)
     return(
         <>
-            <div className=" w-full h-auto min-h-screen  ">
-                <div className="border-1 border-black/10 bg-white w-full h-20 py-2 px-20 flex flex-row items-center fixed top-0 left-0 ">
-                    <h2 className="text-transparent bg-gradient-to-r from-blue-600 to-red-500 bg-clip-text"><b>Mohammad Ashraf</b></h2>
-                    <ul className="hidden md:flex space-x-5 h-fit ml-auto">
-                        <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{home.current?.scrollIntoView({ behavior: 'smooth' }); }}>Home</button></li>
-                        <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{about.current?.scrollIntoView({ behavior: 'smooth' });}}>About</button></li>
-                        <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{skill.current?.scrollIntoView({ behavior: 'smooth' });}}>Skills</button></li>
-                        <li><button  className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{project.current?.scrollIntoView({ behavior: 'smooth' });}} >Projects</button></li>                       
-                        <li><button  className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{activity.current?.scrollIntoView({ behavior: 'smooth' });}}>Extra-Activity</button></li>                   
-                        <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{api.current?.scrollIntoView({ behavior: 'smooth' });}}>API</button></li>
+            <div className=" w-full h-auto min-h-screen  ">{/* main div */}
+
+                {/* Nav bar  */}
+                <div className="border-1 border-black/10 bg-white w-full min-h-20  flex flex-col items-center fixed top-0 left-0 z-50 ">
+                    <div className="flex w-full h-20 py-2 px-20 items-center  ">
+                        <h2 className="mr-auto text-transparent bg-gradient-to-r from-blue-600 to-red-500 bg-clip-text"><b>Mohammad Ashraf</b></h2>
+                        <ul className="hidden md:flex space-x-5 h-fit ml-auto">
+                            <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{home.current?.scrollIntoView({ behavior: 'smooth' }); }}>Home</button></li>
+                            <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{about.current?.scrollIntoView({ behavior: 'smooth' });}}>About</button></li>
+                            <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{skill.current?.scrollIntoView({ behavior: 'smooth' });}}>Skills</button></li>
+                            <li><button  className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{project.current?.scrollIntoView({ behavior: 'smooth' });}} >Projects</button></li>                       
+                            <li><button  className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{activity.current?.scrollIntoView({ behavior: 'smooth' });}}>Extra-Activity</button></li>                   
+                            <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{api.current?.scrollIntoView({ behavior: 'smooth' });}}>API</button></li>
+                        
+                        </ul>
+                        <button className="ml-auto w-6 h-6 " onClick={()=>{ setMenubtn((prev)=>!prev)}}><img src={!menubtn? barbtn : closebtn } alt="menu" /></button>
+                    </div>
+                     <div className={ menubtn ? "w-full  bg-white" : "hidden" } >
+                        <ul className="w-full">
+                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10 " onClick={(e)=>{home.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false); }}>Home</button></li>
+                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{about.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false); }}>About</button></li>
+                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{skill.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>Skills</button></li>
+                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{project.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}} >Projects</button></li>                       
+                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{activity.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>Extra-Activity</button></li>                   
+                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{api.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>API</button></li>
+                    
                     </ul>
+                    </div>
+
                 </div>
 
+                  
+
+                {/* Home section */}
                 <section ref={home} className="pt-20" id='home'>
                 <div  className="md:h-[85vh] w-full bg-white flex flex-col md:flex-row-reverse"> 
                     <div className=" md:pt-0 grow basis-1/2 flex justify-center items-center ">
