@@ -81,14 +81,14 @@ const MainPage=()=>{
     return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-   console.log(formData)
+   
     return(
         <>
             <div className=" w-full h-auto min-h-screen  ">{/* main div */}
 
                 {/* Nav bar  */}
-                <div className="border-1 border-black/10 bg-white w-full min-h-20  flex flex-col items-center fixed top-0 left-0 z-50 ">
-                    <div className="flex w-full h-20 py-2 px-20 items-center  ">
+                <div className="border  border-black/10  w-full min-h-20  flex flex-col items-center fixed top-0 left-0 z-50 ">
+                    <div className="flex w-full h-20 py-2 px-10 md:px-20 items-center bg-white  ">
                         <h2 className="mr-auto text-transparent bg-gradient-to-r from-blue-600 to-red-500 bg-clip-text"><b>Mohammad Ashraf</b></h2>
                         <ul className="hidden md:flex space-x-5 h-fit ml-auto">
                             <li><button className="nav-link cursor-pointer border-b-2 border-b-transparent" onClick={(e)=>{home.current?.scrollIntoView({ behavior: 'smooth' }); }}>Home</button></li>
@@ -101,14 +101,14 @@ const MainPage=()=>{
                         </ul>
                         <button className="md:hidden ml-auto w-6 h-6 " onClick={()=>{ setMenubtn((prev)=>!prev)}}><img src={!menubtn? barbtn : closebtn } alt="menu" /></button>
                     </div>
-                     <div className={ menubtn ? "w-full  bg-white" : "hidden" } >
+                     <div className={ menubtn ? "w-full  backdrop-blur-sm" : "hidden" } >
                         <ul className="w-full">
-                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10 " onClick={(e)=>{home.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false); }}>Home</button></li>
-                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{about.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false); }}>About</button></li>
-                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{skill.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>Skills</button></li>
-                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{project.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}} >Projects</button></li>                       
-                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{activity.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>Extra-Activity</button></li>                   
-                        <li><button  className="nav-link cursor-pointer border-y p-4 w-full border-transparent hover:border-black/10" onClick={(e)=>{api.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>API</button></li>
+                        <li><button  className="nav-link cursor-pointer border-t p-4 w-full  border-black/10 " onClick={(e)=>{home.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false); }}>Home</button></li>
+                        <li><button  className="nav-link cursor-pointer border-t p-4 w-full  border-black/10" onClick={(e)=>{about.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false); }}>About</button></li>
+                        <li><button  className="nav-link cursor-pointer border-t p-4 w-full  border-black/10" onClick={(e)=>{skill.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>Skills</button></li>
+                        <li><button  className="nav-link cursor-pointer border-t p-4 w-full  border-black/10" onClick={(e)=>{project.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}} >Projects</button></li>                       
+                        <li><button  className="nav-link cursor-pointer border-t p-4 w-full  border-black/10" onClick={(e)=>{activity.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>Extra-Activity</button></li>                   
+                        <li><button  className="nav-link cursor-pointer border-t p-4 w-full  border-black/10" onClick={(e)=>{api.current?.scrollIntoView({ behavior: 'smooth' }); setMenubtn(false);}}>API</button></li>
                     
                     </ul>
                     </div>
@@ -143,11 +143,10 @@ const MainPage=()=>{
                                 <img src={mefull} alt="my_img" className="w-50 h-65  transition-all duration-1000  " ref={(el) => (elementsRef.current[0] = el)} />
                                 <div className="w-full md:w-[60%] flex flex-col justify-center transition-all duration-900" ref={(el) => (elementsRef.current[1] = el)}>
                                     <h1><b>I'am Mohammad Ashraf</b></h1>
-                                    <p >I am a Computer Science Engineering student with a strong interest in full-stack web development and artificial intelligence. I enjoy learning new technologies and building real-world projects. My goal is to master Data Structures and Algorithms and become a skilled full-stack developer using React for the frontend and Django REST Framework (DRF) for the backend.
-
-I have a goo                        d understanding of Django and I’m currently focusing on building REST APIs with DRF. I am also exploring the fields of AI and machine learning to expand my knowledge and skills. I love solving problems, creating useful applications, and continuously improving through hands-on projects and practice.
-
-</p>
+                                    <p >
+                                        I am a Computer Science Engineering student with a strong interest in full-stack web development and artificial intelligence. I enjoy learning new technologies and building real-world projects. My goal is to master Data Structures and Algorithms and become a skilled full-stack developer using React for the frontend and Django REST Framework (DRF) for the backend.
+                                        I have a good understanding of Django and I’m currently focusing on building REST APIs with DRF. I am also exploring the fields of AI and machine learning to expand my knowledge and skills. I love solving problems, creating useful applications, and continuously improving through hands-on projects and practice.
+                                    </p>
                                 </div>
                             </div>
                             
@@ -221,7 +220,7 @@ I have a goo                        d understanding of Django and I’m currentl
                         
                             <div className="px-7 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[7] = el)}>
                                <ul className="list-disc list-inside" >
-                                    <li className="my-9">Actively participated in college-level technical and creative events like CodeBrain and LogoQuest, earning certificates of participation.</li>
+                                    <li className="my-9">I actively participated in college-level technical and creative events like CodeBrain and LogoQuest, earning certificates of participation.</li>
                                     
                                     <li className="my-9">
                                         Mini Hackathon organized by Hostel Technical Committee.
@@ -246,7 +245,7 @@ I have a goo                        d understanding of Django and I’m currentl
                         <div className="px-7 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[8] = el)}>
                             
                             <p>I have created api's in DRF, you can make get requests on them.</p>
-                            <p><b>BaseURL: </b> https://ashrafporfolio.onrender.com/<br/>api</p>
+                            <p className="break-words"><b>BaseURL: </b> https://ashrafporfolio.onrender.com/api</p>
                             <p><b>Routs- </b></p>
                             <ul className="list-disc list-inside">
                                 <li>/profile/</li>
@@ -279,10 +278,11 @@ I have a goo                        d understanding of Django and I’m currentl
                     <div className="flex flex-col  gap-10 items-center w-full h-50 bg-blue-950 p-10">
                         <h1 className="text-white">Mohammad Ashraf</h1>
                         <div className="flex gap-10">
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdashraf6776@gmail.com" target="_blank" rel="noopener noreferrer"><Mail className="w-5 h-5 text-red-600" /></a>
+                            <a href="mailto:mdashraf6776@gmail.com" target="_blank" rel="noopener noreferrer"><Mail className="w-5 h-5 text-red-600" /></a>
                             <a href="https://www.linkedin.com/in/mdashraf123" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5 text-blue-600" /></a>
                             <a href="https://github.com/MdAshraf123" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5 text-black" /></a>
-                            <a href="https://wa.me/+919576188048" target="_blank" rel="noopener noreferrer"><svg
+                            <a href="https://wa.me/+919576188048" target="_blank" rel="noopener noreferrer">
+                            <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="20"
                                 height="20"
