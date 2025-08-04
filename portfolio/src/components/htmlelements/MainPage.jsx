@@ -126,7 +126,7 @@ const MainPage=()=>{
                     <div className=" grow basis-1/2 flex flex-col justify-center items-center px-7 md:pl-30 ">                       
                         <h1 className="w-full  text-2xl leading-7 lg:text-5xl lg:leading-15">Hi,<br/>I'am <span className="text-blue-600">Mohammad Ashraf</span> <br/> Full-Stack Developer</h1>
                         <div className="w-full">
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdashraf6776@gmail.com" target="_blank" rel="noopener noreferrer" className="inline-block border mt-10  self-start p-2 w-fit h-fit rounded-sm cursor-pointer bg-blue-600 text-white font-light hover:text-white">Contact</a>
+                            <a href="mailto:mdashraf6776@gmail.com" target="_blank" rel="noopener noreferrer" className="inline-block border mt-10  self-start p-2 w-fit h-fit rounded-sm cursor-pointer bg-blue-600 text-white font-light hover:text-white">Contact</a>
                         </div>                 
                     </div>
                     
