@@ -281,7 +281,7 @@ const MainPage=()=>{
                             <a href="mailto:mdashraf6776@gmail.com"  rel="noopener noreferrer"><Mail className="w-5 h-5 text-red-600" /></a>
                             <a href="https://www.linkedin.com/in/mdashraf123" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5 text-blue-600" /></a>
                             <a href="https://github.com/MdAshraf123" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5 text-black" /></a>
-                            <a href="https://wa.me/+919576188048" target="_blank" rel="noopener noreferrer">
+                            <a href="" target="_blank" rel="noopener noreferrer">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="20"
