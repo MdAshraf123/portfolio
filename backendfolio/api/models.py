@@ -32,7 +32,7 @@ class Project(models.Model):
     project_name=models.CharField(max_length=30)
     project_discription=models.CharField(max_length=500)
     project_start_at=models.DateField(null=True, blank=True)
-    project_end_at=models.DateTimeField(null=True, blank=True)
+    project_end_at=models.DateField(null=True, blank=True)
     project_status=models.CharField(max_length=10, choices=[('finished','Finished'),('on_going','On Going')])
     project_link=models.URLField(blank=True, null=True)
 
