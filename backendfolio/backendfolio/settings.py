@@ -100,9 +100,11 @@ WSGI_APPLICATION = 'backendfolio.wsgi.application'
 #     }
 # }
 
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
+
 
 # DATABASES = {
 #     'default': {
@@ -114,7 +116,7 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
-
+# DATABASES['default']=dj_database_url.parse("paste here your external connection string of database")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
