@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-kfg4(6*+q!q4zje$a^n4&jlnua$kkebs53vkqe$-ojh$k#mx)#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://ashrafporfolio.onrender.com']
 CSRF_TRUSTED_ORIGINS = ['https://ashrafporfolio.onrender.com']
 
 REST_FRAMEWORK = {
