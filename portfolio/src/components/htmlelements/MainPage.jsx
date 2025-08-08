@@ -1,7 +1,6 @@
 import { Mail, Github, Linkedin, MapPin } from "lucide-react";
 import React,{useRef, useEffect, useState} from 'react';
-import me1 from '../../assets/me1.png';
-import me2 from '../../assets/me2.png';
+
 import me3 from '../../assets/me3.png';
 import mefull from '../../assets/mefull.png';
 import skillimg from '../../assets/skill.jpg';
@@ -10,6 +9,8 @@ import reactlogo from '../../assets/react.svg';
 import djangologo from '../../assets/Django.svg';
 import barbtn from '../../assets/bars.svg';
 import closebtn from '../../assets/close.png';
+import pythonlogo from '../../assets/python.png';
+import jslogo from '../../assets/js.png';
 import Skill from './Skill';
 
 const MainPage=()=>{
@@ -167,10 +168,13 @@ const MainPage=()=>{
                                     <h1><b>Professional Skills</b></h1>
                                     {/* (Django Rest Framework) */}
                                     <p className=" ">Proficient in building REST APIs using Django and Django REST Framework. Comfortable with frontend development using React and integrating it with backend services for full-stack applications.</p>
+
                                     <Skill logo={drflogo} skill={'DRF '} ref={(el) => (elementsRef.current[3] = el)} />
                                     <Skill logo={djangologo} skill={'Django'} ref={(el) => (elementsRef.current[4] = el)} />
+                                    
                                     <Skill logo={reactlogo} skill={'React'} ref={(el) => (elementsRef.current[5] = el)} />
-                                   
+                                   <Skill logo={pythonlogo} skill={'Python'} ref={(el) => (elementsRef.current[6] = el)} />
+                                    <Skill logo={jslogo} skill={'Java Script'} ref={(el) => (elementsRef.current[7] = el)} />
                                 </div>
                             </div>
                             
@@ -183,7 +187,7 @@ const MainPage=()=>{
                 <section ref={project} className="pt-20">
                     <div  className="md:h-[85vh] w-full bg-white flex flex-col">
                         <h1 className="text-center underline underline-offset-8 text-blue-600 text-3xl w-full">Projects</h1>
-                        <div className="p-7 md:p-0 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[6] = el)}>
+                        <div className="p-7 md:p-0 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[8] = el)}>
                             <ol className="w-full max-w-screen">
 
                                 <li className="my-4 md:my-4">
@@ -218,7 +222,7 @@ const MainPage=()=>{
                     <div  className="md:h-[85vh] w-full bg-white flex flex-col">
                         <h1 className="text-center underline underline-offset-8 text-blue-600 text-3xl w-full">Extra-Activity</h1>
                         
-                            <div className="px-7 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[7] = el)}>
+                            <div className="px-7 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[9] = el)}>
                                <ul className="list-disc list-inside" >
                                     <li className="my-9">I actively participated in college-level technical and creative events like CodeBrain and LogoQuest, earning certificates of participation.</li>
                                     
@@ -242,7 +246,7 @@ const MainPage=()=>{
                     <div  className="h-[85vh] w-full bg-white flex flex-col">
                         <h1 className="mb-4 text-center underline underline-offset-8 text-blue-600 text-3xl w-full">I'am on API</h1>
                     
-                        <div className="px-7 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[8] = el)}>
+                        <div className="px-7 md:px-30 transition-all duration-1000" ref={(el) => (elementsRef.current[10] = el)}>
                             
                             <p>I have created api's in DRF, you can make get requests on them.</p>
                             <p className="break-words"><b>BaseURL: </b> https://ashrafporfolio.onrender.com/api</p>

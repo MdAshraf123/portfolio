@@ -45,6 +45,15 @@ class ProjectListAPIView(ListAPIView):
     queryset=Project.objects.all()
     serializer_class=ProjectSerializer
 
+    def list(self, requset, *args, **kwargs):
+        queryset=self.get_queryset()
+        serializer=self.get_serializer(queryset, many=True)
+        return Response({
+            'success':True,
+            'total':queryset.count(),
+            'skills':serializer.data,
+        })
+
 class ExtraActivityListAPIView(ListAPIView):
     queryset=ExtraActivity.objects.all()
     serializer_class=ExtraActivitySerializer
