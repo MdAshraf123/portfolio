@@ -194,7 +194,7 @@ const MainPage=()=>{
                                     <h1><b>Project: </b>AGC ERP</h1>
                                     <p><b>Synopsis: </b>AGC ERP is a centralized system designed to manage academic, administrative, and student-related activities efficiently at AGC.</p>
                                     <p><b>Technology: </b>DRF (Django Rest Framework), React, SQLite</p>
-                                    <p><b>GitHub: </b><a className="underline break-words" href="https://github.com/MdAshraf123/djangoReact">https://github.com/MdAshraf123/djangoReact</a></p>
+                                    <p><b>GitHub: </b><a className="underline break-words" href="https://github.com/MdAshraf123/AGC_ERP">https://github.com/MdAshraf123/AGC_ERP</a></p>
                                 </li>
 
                                 <li className="my-4 md:my-4">
